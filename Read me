@@ -1,0 +1,41 @@
+Core Business Objectives
+Spend Visibility: Compare actual procurement spend against target budgets to identify overspending and track monthly variations.
+
+Supplier Performance & Risk Control: Assess supplier reliability, lead times, quality ratings, and risk metrics.
+
+Logistics & Delivery Optimization: Monitor On-Time Delivery (OTD), track carrier performance, identify delivery delay drivers, and analyze freight transport modes.
+
+🛠️ Data Architecture & Modeling
+1. Data Cleaning & Transformation (Power Query)
+Combined multi-source operational tables (procurement logs, target spreadsheets, supplier rating databases, carrier information, and shipment records).
+
+Utilized Append and Merge operations to unite disparate historical logs and normalize dimension attributes.
+
+Standardized inconsistent categorical data (payment terms, transport modes, shipment statuses) and applied explicit text trimming and numeric rounding.
+
+Dynamic unpivoting of target matrices into tidy fact structures.
+
+2. Advanced Modeling (Galaxy Schema)
+Designed a dynamic Galaxy Schema containing dual fact tables (Procurement Actuals & Procurement Targets) sharing common dimension tables (Dim Supplier, Dim Product, Dim Warehouse, Dim Carrier, Dim Buyer, and Dim Category).
+
+Developed a dedicated, fully continuous DAX Calendar/Date Table (Dim Date) supporting both active and inactive relationships (USERELATIONSHIP) for multidate analysis (Order Date, Actual Delivery Date, Promise Date, and Dispatch Date).
+
+📊 Key Metrics & DAX Measures
+Procurement Financials: Actual Procurement Spend, Target Spend, Spend Variance, and Month-over-Month (MoM) Growth calculations.
+
+Operational Volume & Quality: Total Purchase Orders (PO), Total Delivered Shipments, Rejection Rate (%).
+
+Delivery & Fulfillment: On-Time Delivery (OTD %), Average Lead Time (Days), Delayed Shipments.
+
+Dynamic Indicators: Custom DAX visual indicators (green/red variance trend arrows) reflecting month-over-month shifts.
+
+🖥️ Dashboard Features & Visualizations
+Executive KPI Panel: At-a-glance cards showing total spend, order volumes, lead times, and rejection rates alongside MoM percentage variance.
+
+Financial Performance: Interactive Actual vs. Target Spend comparison and Spend Variance by Product Category.
+
+Risk & Order Status: Breakdown of order statuses (Open, Closed, Canceled) and supplier distribution by risk tier (Low, Medium, High).
+
+Root-Cause Delay Analysis: Dynamic Decomposition Tree breaking down delivery delays across transport modes, carrier names, regions, and product lines.
+
+Interactivity & Navigation: Date range pickers, multi-level slicers (Month, Supplier Name), and streamlined side-navigation buttons.
