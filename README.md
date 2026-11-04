@@ -1,4 +1,5 @@
 Core Business Objectives
+
 Spend Visibility: Compare actual procurement spend against target budgets to identify overspending and track monthly variations.
 
 Supplier Performance & Risk Control: Assess supplier reliability, lead times, quality ratings, and risk metrics.
